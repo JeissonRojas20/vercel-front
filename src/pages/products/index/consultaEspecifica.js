@@ -32,7 +32,7 @@ const IndexConsultaEspecifica = () => {
   useEffect(() => {
     const fetchRelatedProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3002/products');
+        const response = await fetch('https://railway-back-bd-production.up.railway.app/products');
         const data = await response.json();
         setRelatedProducts(data);
       } catch (error) {
