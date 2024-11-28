@@ -49,7 +49,7 @@ export default function CambioClave() {
     const user = sessionStorage.getItem('CorreoUsuario');
     const correo = user;
 
-    axios.post("http://localhost:3002/users/changePassword", {
+    axios.post("https://railway-back-bd-production.up.railway.app/users/changePassword", {
       NuevaContrasena: password,
       Correo: correo
     })
