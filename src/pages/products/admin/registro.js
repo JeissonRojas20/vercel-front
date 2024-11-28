@@ -81,7 +81,7 @@ const ProductoForm = () => {
   
     try {
       const response = await Axios.post(
-        "http://localhost:3002/products/create",
+        "https://railway-back-bd-production.up.railway.app/products/create",
         formDataToSend,
         {
           headers: {
