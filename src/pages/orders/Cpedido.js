@@ -30,7 +30,7 @@ function Cpedido() {
 
   // Obtener los pedidos desde el backend
   useEffect(() => {
-    fetch('http://localhost:3002/orders')
+    fetch('https://railway-back-bd-production.up.railway.app/orders')
       .then((response) => response.json())
       .then((data) => {
         setData(data);
