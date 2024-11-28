@@ -40,7 +40,7 @@ const UserProfile = () => {
 
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:3002/users/user/${id}`);
+                const response = await axios.get(`https://railway-back-bd-production.up.railway.app/users/user/${id}`);
                 const userData = response.data?.data;
                 if (userData) {
                     setProfile(userData);
@@ -86,7 +86,7 @@ const UserProfile = () => {
         const data = { ...formData, ID: id };
 
         try {
-            const response = await axios.put('http://localhost:3002/users/updateUser', data);
+            const response = await axios.put('https://railway-back-bd-production.up.railway.app/users/updateUser', data);
             if (response.status === 200) {
                 setUpdateSuccess(true);
             }
