@@ -25,7 +25,7 @@ const AdministradorConsultaProducto = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await Axios.get("http://localhost:3002/products");
+      const response = await Axios.get("https://railway-back-bd-production.up.railway.app/products");
       console.log(response.data);
       setProducts(response.data);
       setFilteredProducts(response.data);
@@ -47,7 +47,7 @@ const AdministradorConsultaProducto = () => {
     const fetchCategories = async () => {
       try {
         const response = await Axios.get(
-          "http://localhost:3002/products/categories"
+          "https://railway-back-bd-production.up.railway.app/products/categories"
         );
         setCategories(response.data); // Almacena las categorías en el estado
       } catch (error) {
@@ -131,7 +131,7 @@ const AdministradorConsultaProducto = () => {
     }
     try {
       const response = await Axios.patch(
-        `http://localhost:3002/products/inactivateProduct/${productToDelete}`,
+        `https://railway-back-bd-production.up.railway.app/products/inactivateProduct/${productToDelete}`,
         {
           description: inactivationReason,
           userId: userId,
