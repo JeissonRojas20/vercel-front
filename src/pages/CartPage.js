@@ -19,7 +19,7 @@ const CartPage = () => {
     // Cargar los productos disponibles
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:3002/products');
+        const response = await fetch('https://railway-back-bd-production.up.railway.app/products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -127,7 +127,7 @@ const CartPage = () => {
     };
   
     try {
-      const response = await fetch('http://localhost:3002/orders/createcar', {
+      const response = await fetch('https://railway-back-bd-production.up.railway.app/orders/createcar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
