@@ -37,7 +37,7 @@ export default function AdminUsers() {
 
     const handleMassReactivation = async () => {
         try {
-            const response = await fetch('http://localhost:3002/users/reactivate', {
+            const response = await fetch('https://railway-back-bd-production.up.railway.app/users/reactivate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',  // Especificamos que estamos enviando JSON
@@ -74,7 +74,7 @@ export default function AdminUsers() {
     const usersPerPage = 4;
 
     const fetchUsers = () => {
-        axios.get('http://localhost:3002/users')
+        axios.get('https://railway-back-bd-production.up.railway.app/users')
             .then(response => {
                 setUsers(response.data);
             })
@@ -101,7 +101,7 @@ export default function AdminUsers() {
     );
 
     const fetchInactiveUsers = () => {
-        axios.get('http://localhost:3002/users/idle')
+        axios.get('https://railway-back-bd-production.up.railway.app/users/idle')
             .then(response => {
                 setInactiveUsers(response.data);
             })
@@ -145,7 +145,7 @@ export default function AdminUsers() {
 
         try {
             // Realizar solicitud POST para actualizar el usuario
-            await axios.post(`http://localhost:3002/users/update`, userData);
+            await axios.post(`https://railway-back-bd-production.up.railway.app/users/update`, userData);
             console.log('Usuario actualizado:', userData);
             closeModal();  // Cerrar modal
             fetchUsers();  // Refrescar la lista de usuarios
@@ -158,7 +158,7 @@ export default function AdminUsers() {
     const handleDelete = async (userId) => {
         if (window.confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
             try {
-                await axios.get(`http://localhost:3002/users/desactivate/${userId}`);
+                await axios.get(`https://railway-back-bd-production.up.railway.app/users/desactivate/${userId}`);
                 console.log('Usuario marcado como inactivo:', userId);
                 fetchUsers();
             } catch (error) {
