@@ -71,7 +71,7 @@ const RegisterUser = () => {
     };
 
     const registroUsuario = () => {
-        axios.post("http://localhost:3002/users/create", {
+        axios.post("https://railway-back-bd-production.up.railway.app/users/create", {
             Nombres: nombres,
             Apellidos: apellidos,
             Correo: correo,
