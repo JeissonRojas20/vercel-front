@@ -13,7 +13,7 @@ const AdministradorActualizarProducto = ({ productId, onClose, userId }) => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:3002/products/${productId}`);
+        const response = await fetch(`https://railway-back-bd-production.up.railway.app/products/${productId}`);
         const data = await response.json();
         setProduct(data);
         setPreviewUrl(data.imagen); // Establecer la URL de la imagen existente para vista previa
@@ -28,7 +28,7 @@ const AdministradorActualizarProducto = ({ productId, onClose, userId }) => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3002/products/categories");
+        const response = await fetch("https://railway-back-bd-production.up.railway.app/products/categories");
         const data = await response.json();
         setCategories(data);
       } catch (error) {
@@ -101,14 +101,14 @@ const AdministradorActualizarProducto = ({ productId, onClose, userId }) => {
 
     try {
       // Actualizar producto
-      await fetch(`http://localhost:3002/products/updateProduct/${productId}`, {
+      await fetch(`https://railway-back-bd-production.up.railway.app/products/updateProduct/${productId}`, {
         method: "PUT",
         body: formDataToSend,
       });
       
     // Actualizar cantidades si se agregaron o eliminaron productos
     if (Number(addQuantity) > 0 || Number(removeQuantity) > 0) {
-      await fetch(`http://localhost:3002/products/updateQuantity/${productId}`, {
+      await fetch(`https://railway-back-bd-production.up.railway.app/products/updateQuantity/${productId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
