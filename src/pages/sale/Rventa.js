@@ -20,7 +20,7 @@ const Rventa = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await fetch('http://localhost:3002/products');
+        const response = await fetch('https://railway-back-bd-production.up.railway.app/products');
         const data = await response.json();
         setProductos(data);
         setProductosFiltrados(data);
@@ -145,7 +145,7 @@ const Rventa = () => {
   
       console.log("Datos de la venta a enviar:", venta);
   
-      const response = await fetch('http://localhost:3002/sale/create', {
+      const response = await fetch('https://railway-back-bd-production.up.railway.app/sale/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(venta)
@@ -181,7 +181,7 @@ const Rventa = () => {
   
   const fetchProductos = async () => {
     try {
-      const response = await fetch('http://localhost:3002/products');
+      const response = await fetch('https://railway-back-bd-production.up.railway.app/products');
       const data = await response.json();
       setProductos(data); // Actualiza el estado de productos
       setProductosFiltrados(data); // También actualiza los productos filtrados
