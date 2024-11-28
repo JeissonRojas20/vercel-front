@@ -17,7 +17,7 @@ function Cventa() {
   useEffect(() => {
     // Función para obtener los datos de la venta
     const fetchData = () => {
-      fetch('http://localhost:3002/sale/all')
+      fetch('https://railway-back-bd-production.up.railway.app/sale/all')
         .then(response => response.json())
         .then(data => {
           console.log("Datos de la respuesta:", data); // Verifica que `data` sea un array
