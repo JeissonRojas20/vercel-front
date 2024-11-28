@@ -303,7 +303,7 @@ const Rpedido = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await Axios.get("http://localhost:3002/products");
+            const response = await Axios.get("https://railway-back-bd-production.up.railway.app/products");
             setAvailableProducts(response.data);
         } catch (error) {
             console.error("Error al obtener productos:", error);
