@@ -25,7 +25,7 @@ const ClienteConsulta = () => {
       try {
         // Obtener productos y categorías en paralelo
         const [productsResponse, categoriesResponse] = await Promise.all([
-          fetch('http://localhost:3002/products'),
+          fetch('https://railway-back-bd-production.up.railway.app/products'),
           fetch('http://localhost:3002/products/categories')
         ]);
         
