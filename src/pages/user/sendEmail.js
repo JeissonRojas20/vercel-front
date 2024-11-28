@@ -31,7 +31,7 @@ const SendEmail = () => {
         }
 
         try {
-            await axios.post('http://localhost:3002/users/recover', { Correo: Correo }); // Cambiado de correo a Correo
+            await axios.post('https://railway-back-bd-production.up.railway.app/users/recover', { Correo: Correo }); // Cambiado de correo a Correo
             sessionStorage.setItem('CorreoUsuario', Correo);
             setSuccess('El código de recuperación ha sido enviado a tu correo electrónico.');
             setTimeout(() => {
