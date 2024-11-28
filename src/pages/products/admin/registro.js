@@ -29,7 +29,7 @@ const ProductoForm = () => {
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3002/products/categories")
+    Axios.get("https://railway-back-bd-production.up.railway.app/products/categories")
       .then((response) => {
         console.log("Categorías recibidas:", response.data); // Agregamos log
         setCategories(response.data);
