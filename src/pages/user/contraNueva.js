@@ -49,7 +49,7 @@ export default function ContraNueva() {
     const id = user?.ID; // Accede al ID en el objeto (verifica si es "ID" o "id")
     console.log("ID del usuario:", id);
 
-    axios.post("http://localhost:3002/users/password", {
+    axios.post("https://railway-back-bd-production.up.railway.app/users/password", {
       ID: id,
       Contrasena: password
     })
