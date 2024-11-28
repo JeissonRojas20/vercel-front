@@ -46,7 +46,7 @@ const SendCode = () => {
 
     try {
       // Llamar a la API de validación
-      const response = await fetch("http://localhost:3002/users/validateCode", {
+      const response = await fetch("https://railway-back-bd-production.up.railway.app/users/validateCode", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
