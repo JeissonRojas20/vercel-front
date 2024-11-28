@@ -26,7 +26,7 @@ const MisPedidos = () => {
 
     const fetchPedidos = async () => {
       try {
-        const response = await axios.get(`http://localhost:3002/orders/user/${usuario.ID}`, {
+        const response = await axios.get(`https://railway-back-bd-production.up.railway.app/orders/user/${usuario.ID}`, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -58,7 +58,7 @@ const MisPedidos = () => {
   const handleDelete = async (id) => {
     try {
       // Realizar la solicitud GET para desactivar el pedido
-      const response = await axios.get(`http://localhost:3002/orders/desactivate/${id}`);
+      const response = await axios.get(`https://railway-back-bd-production.up.railway.app/orders/desactivate/${id}`);
       
       // Si la desactivación fue exitosa, actualizar el estado local de pedidos
       setPedidos(pedidos.filter(pedido => pedido.id !== id));
@@ -89,11 +89,11 @@ const MisPedidos = () => {
   
     try {
       // Realizar la solicitud PUT para actualizar el pedido
-      const response = await axios.put(`http://localhost:3002/orders/edit/${selectedPedido.id}`, updatedPedido);
+      const response = await axios.put(`https://railway-back-bd-production.up.railway.app/orders/edit/${selectedPedido.id}`, updatedPedido);
   
       // Volver a cargar todos los pedidos
       const usuario = JSON.parse(sessionStorage.getItem('usuario'));
-      const responsePedidos = await axios.get(`http://localhost:3002/orders/user/${usuario.ID}`, {
+      const responsePedidos = await axios.get(`https://railway-back-bd-production.up.railway.app/orders/user/${usuario.ID}`, {
         headers: {
           'Content-Type': 'application/json'
         }
