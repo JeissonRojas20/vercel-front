@@ -15,7 +15,7 @@ const AdministradorConsultaProductoInactivo = () => {
 
   const fetchInactiveProducts = async () => {
     try {
-      const response = await Axios.get('http://localhost:3002/products/productsInactive');
+      const response = await Axios.get('https://railway-back-bd-production.up.railway.app/products/productsInactive');
       setInactiveProducts(response.data);
     } catch (error) {
       console.error('Error fetching inactive products:', error);
