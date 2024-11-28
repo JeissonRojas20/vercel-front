@@ -32,7 +32,7 @@ const Login = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3002/users/validation', {
+            const response = await axios.post('https://railway-back-bd-production.up.railway.app/users/validation', {
                 Correo,
                 Contrasena
             }, { withCredentials: true });
