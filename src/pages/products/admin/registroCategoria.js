@@ -24,7 +24,7 @@ const CategoriaForm = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await Axios.get('http://localhost:3002/products/categories');
+      const response = await Axios.get('https://railway-back-bd-production.up.railway.app/products/categories');
       if (response.status === 200 && Array.isArray(response.data)) {
         setCategories(response.data);
       } else {
@@ -45,14 +45,14 @@ const CategoriaForm = () => {
     try {
       if (editingCategory) {
         // Actualizar categoría existente
-        await Axios.put(`http://localhost:3002/products/updateCategory/${editingCategory.id}`, {
+        await Axios.put(`https://railway-back-bd-production.up.railway.app/products/updateCategory/${editingCategory.id}`, {
           nombre: formData.nombre
         });
         setMessage('Categoría actualizada con éxito.');
         setEditingCategory(null);
       } else {
         // Crear nueva categoría
-        await Axios.post('http://localhost:3002/products/createCategory', {
+        await Axios.post('https://railway-back-bd-production.up.railway.app/products/createCategory', {
           nombre: formData.nombre
         });
         setMessage('Categoría registrada con éxito.');
@@ -73,7 +73,7 @@ const CategoriaForm = () => {
   const handleDelete = async (id) => {
     if (window.confirm('¿Está seguro de que desea eliminar esta categoría?')) {
       try {
-        await Axios.delete(`http://localhost:3002/products/deleteCategory/${id}`);
+        await Axios.delete(`https://railway-back-bd-production.up.railway.app/products/deleteCategory/${id}`);
         setMessage('Categoría eliminada con éxito.');
         fetchCategories();
       } catch (error) {
