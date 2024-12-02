@@ -51,10 +51,15 @@ function Cventa() {
   }, []);
 
   // Abrir el modal con los detalles de la venta seleccionada
+  // const handleViewDetails = (order) => {
+  //   setSelectedOrder(order);  // Establecer la orden seleccionada
+  //   setIsModalOpen(true);  // Abrir el modal
+  // };
   const handleViewDetails = (order) => {
-    setSelectedOrder(order);  // Establecer la orden seleccionada
-    setIsModalOpen(true);  // Abrir el modal
-  };
+  console.log("Orden seleccionada", order);  // Asegúrate de que 'order.productos' existe
+  setSelectedOrder(order);  // Establecer la orden seleccionada
+  setIsModalOpen(true);  // Abrir el modal
+};
 
   // Cerrar el modal
   const handleCloseModal = () => {
