@@ -115,7 +115,7 @@ const ClienteConsulta = () => {
           </div>
           <nav className="ml-4">
             <ul className="flex space-x-4">
-              <li><Link to="/pedidoCliente" className="text-white hover:text-gray-300">Mis Pedidos</Link></li>
+              <li><Link to="/pedidosCliente" className="text-white hover:text-gray-300">Mis Pedidos</Link></li>
             </ul>
           </nav>
           <div className="flex items-center space-x-4 ml-4">
