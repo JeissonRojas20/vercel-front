@@ -36,7 +36,7 @@ const AdministradorConsultaProductoInactivo = () => {
 
     try {
       const response = await Axios.put(
-        `http://localhost:3002/products/activate/${selectedProduct.id}`,
+        `https://railway-back-bd-production.up.railway.app/products/activate/${selectedProduct.id}`,
         { description: activationReason, userId }
       );
       console.log("Producto activado:", response.data);
