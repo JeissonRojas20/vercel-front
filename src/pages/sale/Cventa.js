@@ -144,14 +144,23 @@ function Cventa() {
               </tr>
             </thead>
             <tbody>
-              {selectedOrder.productos && selectedOrder.productos.map((product, index) => (
-                <tr key={index}>
-                  <td className="px-4 py-2 border">{product.nombre}</td>
-                  <td className="px-4 py-2 border">${product.precio_unitario.toFixed(2)}</td>
-                  <td className="px-4 py-2 border">{product.cantidad}</td>
-                  <td className="px-4 py-2 border">${product.subtotal}</td>
-                </tr>
-              ))}
+              // {selectedOrder.productos && selectedOrder.productos.map((product, index) => (
+              //   <tr key={index}>
+              //     <td className="px-4 py-2 border">{product.nombre}</td>
+              //     <td className="px-4 py-2 border">${product.precio_unitario.toFixed(2)}</td>
+              //     <td className="px-4 py-2 border">{product.cantidad}</td>
+              //     <td className="px-4 py-2 border">${product.subtotal}</td>
+              //   </tr>
+              // ))}
+{selectedOrder.productos && selectedOrder.productos.map((product, index) => (
+  <tr key={index}>
+    <td className="px-4 py-2 border">{product.nombre}</td>
+    <td className="px-4 py-2 border">${parseFloat(product.precio_unitario).toFixed(2)}</td>
+    <td className="px-4 py-2 border">{product.cantidad}</td>
+    <td className="px-4 py-2 border">${parseFloat(product.subtotal).toFixed(2)}</td>
+  </tr>
+))}
+
             </tbody>
           </table>
 
