@@ -96,7 +96,7 @@ function Cpedido() {
 
   // Confirmar la desactivación (eliminación lógica) del pedido
   const confirmDeleteOrder = () => {
-    fetch(`http://localhost:3002/orders/desactivate/${confirmDeleteId}`, {
+    fetch(`https://railway-back-bd-production.up.railway.app/orders/desactivate/${confirmDeleteId}`, {
       method: 'GET',
     })
       .then((response) => {
@@ -155,7 +155,7 @@ function Cpedido() {
     }
   
     // Realizar la actualización en el backend
-    fetch(`http://localhost:3002/orders/edit/${formData.id}`, {
+    fetch(`https://railway-back-bd-production.up.railway.app/orders/edit/${formData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
