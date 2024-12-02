@@ -27,9 +27,18 @@ const UserProfile = () => {
         CurrentPassword: '',
     });
     const [updateSuccess, setUpdateSuccess] = useState(false);
+    const [validationErrors, setValidationErrors] = useState({});
 
     const usuario = JSON.parse(sessionStorage.getItem('usuario'));
     const id = usuario ? usuario.ID : null;
+
+    // Redirect to login if no user in session
+    useEffect(() => {
+        if (!usuario) {
+            navigate('/login');
+            return;
+        }
+    }, [usuario, navigate]);
 
     useEffect(() => {
         if (!id) {
@@ -78,10 +87,62 @@ const UserProfile = () => {
             ...prevState,
             [name]: value,
         }));
+        
+        // Clear specific validation error when user starts typing
+        if (validationErrors[name]) {
+            setValidationErrors((prev) => ({
+                ...prev,
+                [name]: undefined
+            }));
+        }
+    };
+
+    const validateForm = () => {
+        const errors = {};
+        
+        // Validate Telefono (cannot be empty)
+        if (!formData.Telefono || formData.Telefono.trim() === '') {
+            errors.Telefono = 'El teléfono es obligatorio';
+        }
+
+        // Validate Correo (cannot be empty and must be a valid email)
+        if (!formData.Correo || formData.Correo.trim() === '') {
+            errors.Correo = 'El correo electrónico es obligatorio';
+        } else if (!/\S+@\S+\.\S+/.test(formData.Correo)) {
+            errors.Correo = 'Formato de correo electrónico inválido';
+        }
+
+        // Validate Direccion (cannot be empty)
+        if (!formData.Direccion || formData.Direccion.trim() === '') {
+            errors.Direccion = 'La dirección es obligatoria';
+        }
+
+        // Password validation (optional)
+        if (formData.Contrasena || formData.CurrentPassword) {
+            // If either password field is filled, both must be filled
+            if (!formData.Contrasena) {
+                errors.Contrasena = 'Debe ingresar una nueva contraseña';
+            }
+            if (!formData.CurrentPassword) {
+                errors.CurrentPassword = 'Debe ingresar su contraseña actual';
+            }
+            // Optional: Add password strength check
+            if (formData.Contrasena && formData.Contrasena.length < 6) {
+                errors.Contrasena = 'La contraseña debe tener al menos 6 caracteres';
+            }
+        }
+
+        setValidationErrors(errors);
+        return Object.keys(errors).length === 0;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validate form before submission
+        if (!validateForm()) {
+            return;
+        }
 
         const data = { ...formData, ID: id };
 
@@ -89,6 +150,13 @@ const UserProfile = () => {
             const response = await axios.put('https://railway-back-bd-production.up.railway.app/users/updateUser', data);
             if (response.status === 200) {
                 setUpdateSuccess(true);
+                // Optional: Refresh user data or update session storage
+                sessionStorage.setItem('usuario', JSON.stringify({
+                    ...usuario,
+                    Correo: formData.Correo,
+                    Telefono: formData.Telefono,
+                    Direccion: formData.Direccion
+                }));
             }
         } catch (err) {
             setError('Error al actualizar los datos del usuario');
