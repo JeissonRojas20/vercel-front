@@ -174,7 +174,7 @@ const CartPage = () => {
           <nav className="hidden md:flex space-x-4">
             <ul className="flex space-x-4">
               <li><Link to="/consultaProductoCliente" className="text-white hover:text-gray-300">Inicio</Link></li>
-              <li><Link to="/pedidoCliente" className="text-white hover:text-gray-300">Mis pedidos</Link></li>
+              <li><Link to="/pedidosCliente" className="text-white hover:text-gray-300">Mis pedidos</Link></li>
             </ul>
           </nav>
           <div className="flex items-center space-x-4">
