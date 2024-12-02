@@ -77,7 +77,7 @@ const CategoriaForm = () => {
         setMessage('Categoría eliminada con éxito.');
         fetchCategories();
       } catch (error) {
-        setMessage(`Error al eliminar categoría, hay productos activos con esta categoría: ${error.message}`);
+        setMessage(`Error al eliminar categoría, hay productos activos con esta categoría`);
       }
     }
   };
