@@ -397,7 +397,7 @@ const Rpedido = () => {
         }));
 
         try {
-            await Axios.post("http://localhost:3002/orders/create", {
+            await Axios.post("https://railway-back-bd-production.up.railway.app/orders/create", {
                 nombre: formData.Nombres,
                 numero: formData.num,
                 direccion: formData.adress,
